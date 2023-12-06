@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Maven: commons-io:commons-io:2.15.1">
+    <archive path="C:/Users/mayoz/.m2/repository/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar" />
+  </library>
+  <library name="Maven: org.jsoup:jsoup:1.17.1">
+    <archive path="C:/Users/mayoz/.m2/repository/org/jsoup/Jsoup/1.17.1/jsoup-1.17.1.jar" />
+  </library>
+  <library name="Maven: com.sun.mail:javax.mail:1.6.2">
+    <archive path="C:/Users/mayoz/.m2/repository/com/sun/mail/javax.mail/1.6.2/javax.mail-1.6.2.jar" />
+  </library>
+  <library name="Maven: javax.activation:activation:1.1">
+    <archive path="C:/Users/mayoz/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar" />
+  </library>
+</eclipse-userlibraries>
+
