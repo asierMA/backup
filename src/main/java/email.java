@@ -15,14 +15,15 @@ public class email {
         //System.out.println("Enter your email address: ");
         //Scanner sc = new Scanner(System.in);
         //String email = sc.nextLine();
-        sendEmail("backups202324@gmail.com");
+        //write the email of the receiver
+        sendEmail("mayozasier@gmail.com");
 
 
     }
 
     public static void sendEmail(String email){
         String username = "backups202324@gmail.com";
-        String password = "comenius123";
+        String password = "whgo yqcl sspl uxoy";
 
         Properties prop = new Properties();
         prop.put("mail.smtp.auth", "true");
