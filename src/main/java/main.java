@@ -32,15 +32,16 @@ public class main {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyy HH.mm");
             String timestamp = dateFormat.format(new Date());
 
+            String filename = "backup_"+timestamp;
             // Save the fetched HTML content to a file in the destination folder
-            File backupFile = new File(backupFolder, "backup_" + timestamp + ".html");
+            File backupFile = new File(backupFolder, filename+ ".html");
             //FileUtils.writeStringToFile(backupFile, htmlContent, "UTF-8");
             zip z = new zip();
             z.main(backupFile,htmlContent);
-
+            backupFile.delete();
             // Write backup details to the log file
             File logFile = new File(backupFolder, "backup_log.txt");
-            String logEntry = timestamp + "\t" + backupFile.getName() + "\n";
+            String logEntry = timestamp + "\t" + filename + "\n";
             FileUtils.writeStringToFile(logFile, logEntry, "UTF-8", true);
 
 
