@@ -11,17 +11,17 @@ import javax.mail.internet.MimeMessage;
 
 public class email {
 
-    public static void main(String[] args){
+    //public static void main(String[] args){
         //System.out.println("Enter your email address: ");
         //Scanner sc = new Scanner(System.in);
         //String email = sc.nextLine();
         //write the email of the receiver
-        sendEmail("mayozasier@gmail.com");
+        //sendEmail("mayozasier@gmail.com");
 
 
-    }
+    //}
 
-    public static void sendEmail(String email){
+    public void sendEmail(String email, String path, String log){
         String username = "backups202324@gmail.com";
         String password = "whgo yqcl sspl uxoy";
 
@@ -56,7 +56,9 @@ public class email {
 
             message.setSubject("Backup");
 
-            message.setText("Your backup has been done succesfully!!");
+            message.setText("Your backup has been done succesfully!!\n" +
+                    "Website backed up succesfully to: "+ path+"\n"+
+                    "Backup log updated at: "+log);
 
             Transport.send(message);
 

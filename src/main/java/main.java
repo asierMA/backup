@@ -29,7 +29,7 @@ public class main {
             }
 
             // Create a timestamp for the backup file
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyy HH.mm");
             String timestamp = dateFormat.format(new Date());
 
             // Save the fetched HTML content to a file in the destination folder
@@ -43,6 +43,9 @@ public class main {
 
             System.out.println("Website backed up successfully to: " + backupFile.getAbsolutePath());
             System.out.println("Backup log updated at: " + logFile.getAbsolutePath());
+
+            email e = new email();
+            e.sendEmail("mayozasier@gmail.com",backupFile.getAbsolutePath(),logFile.getAbsolutePath());
 
             // Display the list of previous backups
             viewBackupLog(destination);
