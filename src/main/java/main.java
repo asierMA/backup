@@ -34,16 +34,20 @@ public class main {
 
             // Save the fetched HTML content to a file in the destination folder
             File backupFile = new File(backupFolder, "backup_" + timestamp + ".html");
-            FileUtils.writeStringToFile(backupFile, htmlContent, "UTF-8");
+            //FileUtils.writeStringToFile(backupFile, htmlContent, "UTF-8");
+            zip z = new zip();
+            z.main(backupFile,htmlContent);
 
             // Write backup details to the log file
             File logFile = new File(backupFolder, "backup_log.txt");
             String logEntry = timestamp + "\t" + backupFile.getName() + "\n";
             FileUtils.writeStringToFile(logFile, logEntry, "UTF-8", true);
 
+
             System.out.println("Website backed up successfully to: " + backupFile.getAbsolutePath());
             System.out.println("Backup log updated at: " + logFile.getAbsolutePath());
 
+            // send an email to the user with backup details
             email e = new email();
             e.sendEmail("mayozasier@gmail.com",backupFile.getAbsolutePath(),logFile.getAbsolutePath());
 

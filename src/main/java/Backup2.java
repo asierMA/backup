@@ -8,7 +8,7 @@ class Backup2 {
         try {
             System.out.println("I am going to run ls.");
             Runtime r = Runtime.getRuntime();
-            p = r.exec("cmd /c dir C:\\Users\\mayoz\\uni");
+            p = r.exec("cmd /c dir C:\\Users\\josep\\desktop");
             System.out.println("ls has been started...");
 
             InputStream s = p.getInputStream();
