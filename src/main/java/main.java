@@ -7,9 +7,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 public class main {
-
     public static void main(String[] args) {
-        // write your code here
         if (args.length != 2) {
             System.out.println("Usage: java WebsiteBackupCLI <url> <destination>");
             System.exit(1);
