@@ -6,14 +6,24 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+
 public class main {
     public static void main(String[] args) {
-        if (args.length != 2) {
-            System.out.println("Usage: java WebsiteBackupCLI <url> <destination>");
-            System.exit(1);
-        }
-        String url = args[0];
-        String destination = args[1];
+        Config c = Config.loadConfig();
+        if (c != null)
+            c.dumpConfig();
+            for (Site s : c.getSites()){
+                System.out.println(s.getName());
+            }
+
+        List<Site> sites = c.getSites();
+        String url = sites.get(0).getName();
+        String destination = c.getStorageServer();
+        String email = c.getEmailAdmin();
+
+        System.out.println(url + destination);
+        System.exit(0);
 
         try {
             // Connect to the website and fetch the HTML content
@@ -48,7 +58,7 @@ public class main {
 
             // send an email to the user with backup details
             email e = new email();
-            e.sendEmail("mayozasier@gmail.com",backupFile.getAbsolutePath(),logFile.getAbsolutePath());
+            e.sendEmail("email",backupFile.getAbsolutePath(),logFile.getAbsolutePath());
 
             // Display the list of previous backups
             viewBackupLog(destination);
