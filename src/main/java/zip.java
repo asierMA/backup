@@ -11,7 +11,7 @@ public class zip {
 
     public void main(File backupFile,String htmlContent) throws IOException {
         FileUtils.writeStringToFile(backupFile,htmlContent,"UTF-8");
-        String sourceFile = backupFile;
+        String sourceFile = backupFile.getName();
         FileOutputStream fos = new FileOutputStream("compressed.zip");
         ZipOutputStream zipOut = new ZipOutputStream(fos);
 
