@@ -22,6 +22,8 @@ public class main {
         //System.out.println(url + destination);
         //System.exit(0);
 
+
+
         try {
             // Connect to the website and fetch the HTML content
             Document doc = Jsoup.connect(url).get();
@@ -80,6 +82,10 @@ public class main {
         } catch (IOException e) {
             System.out.println("Error reading backup log: " + e.getMessage());
         }
+    }
+    private static void restoreBackup(String destination, String fileName)
+    {
+
     }
 
 }

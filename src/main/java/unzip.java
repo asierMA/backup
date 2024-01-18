@@ -7,35 +7,37 @@ import java.util.zip.ZipInputStream;
 public class unzip {
     public static void main(String[] args) {
         String zipFilePath = "path/to/your/zip/file.zip";
-        String destDirectory = "path/to/your/destination/directory";
 
         try {
-            unzip(zipFilePath, destDirectory);
+            uz(zipFilePath);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static void unzip(String zipFilePath, String destDirectory) throws IOException {
+    private static void uz(String zipFilePath) throws IOException {
         byte[] buffer = new byte[1024];
         try (ZipInputStream zis = new ZipInputStream(new FileInputStream(zipFilePath))) {
             ZipEntry zipEntry = zis.getNextEntry();
             while (zipEntry != null) {
                 String fileName = zipEntry.getName();
-                // Create directories if needed
-                if (zipEntry.isDirectory()) {
-                    new java.io.File(destDirectory + java.io.File.separator + fileName).mkdirs();
-                } else {
-                    // Extract file
-                    try (FileOutputStream fos = new FileOutputStream(destDirectory + java.io.File.separator + fileName)) {
-                        int len;
-                        while ((len = zis.read(buffer)) > 0) {
-                            fos.write(buffer, 0, len);
-                        }
-                    }
+
+                // Extract file content
+                StringBuilder fileContent = new StringBuilder();
+                int len;
+                while ((len = zis.read(buffer)) > 0) {
+                    fileContent.append(new String(buffer, 0, len));
                 }
+
+                // Send file content to upload class
+                upload u = new upload();
+                u.main(fileContent.toString());
+
                 zipEntry = zis.getNextEntry();
             }
+
+
+
         }
     }
 }
