@@ -13,17 +13,14 @@ public class main {
         Config c = Config.loadConfig();
         if (c != null)
             c.dumpConfig();
-            for (Site s : c.getSites()){
-                System.out.println(s.getName());
-            }
 
         List<Site> sites = c.getSites();
         String url = sites.get(0).getName();
         String destination = c.getStorageServer();
         String email = c.getEmailAdmin();
 
-        System.out.println(url + destination);
-        System.exit(0);
+        //System.out.println(url + destination);
+        //System.exit(0);
 
         try {
             // Connect to the website and fetch the HTML content
@@ -45,7 +42,7 @@ public class main {
             File backupFile = new File(backupFolder, filename+ ".html");
             //FileUtils.writeStringToFile(backupFile, htmlContent, "UTF-8");
             zip z = new zip();
-            z.main(backupFile,htmlContent);
+            z.main(backupFile,htmlContent,destination+filename);
             backupFile.delete();
             // Write backup details to the log file
             File logFile = new File(backupFolder, "backup_log.txt");
@@ -58,7 +55,7 @@ public class main {
 
             // send an email to the user with backup details
             email e = new email();
-            e.sendEmail("email",backupFile.getAbsolutePath(),logFile.getAbsolutePath());
+            e.sendEmail(email,backupFile.getAbsolutePath(),logFile.getAbsolutePath());
 
             // Display the list of previous backups
             viewBackupLog(destination);

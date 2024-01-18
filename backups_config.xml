@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <backups>
     <emailAdmin>mayozasier@gmail.com</emailAdmin>
-    <storageServer>C:\Users\mayoz\Desktop\backups</storageServer>
+    <storageServer>C:\Users\mayoz\Desktop\backups\</storageServer>
 
     <!--  comments are ok, empty lines too -->
 

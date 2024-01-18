@@ -9,10 +9,10 @@ import java.util.zip.ZipOutputStream;
 
 public class zip {
 
-    public void main(File backupFile,String htmlContent) throws IOException {
+    public void main(File backupFile,String htmlContent, String filename) throws IOException {
         FileUtils.writeStringToFile(backupFile,htmlContent,"UTF-8");
         String sourceFile = backupFile.getAbsolutePath();
-        FileOutputStream fos = new FileOutputStream(sourceFile+".zip");
+        FileOutputStream fos = new FileOutputStream(filename+".zip");
 
         ZipOutputStream zipOut = new ZipOutputStream(fos);
 
