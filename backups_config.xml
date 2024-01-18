@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<backups>
+    <emailAdmin>mayozasier@gmail.com</emailAdmin>
+    <storageServer>C:\Users\mayoz\Desktop\backups</storageServer>
+
+    <!--  comments are ok, empty lines too -->
+
+    <site>
+        <name>https://wiki.robotika.sk/robowiki/index.php?title=RoboWiki</name>
+        <includeLocation>/some/folder</includeLocation>
+        <includeLocation>/some/folder2</includeLocation>
+        <excludeLocation>/some/folder1/except</excludeLocation>
+        <excludeLocation>/some/folder1/except</excludeLocation>
+        <autoFullFrequency>7</autoFullFrequency>
+        <autoIncrementalFrequency>1</autoIncrementalFrequency>
+        <autoFirstEverBackup>2024-02-01</autoFirstEverBackup>
+        <autoHourOfDay>4</autoHourOfDay>
+        <autoMinuteOfHour>10</autoMinuteOfHour>
+        <autoKeepNoFullBackups>4</autoKeepNoFullBackups>
+    </site>
+
+</backups>
